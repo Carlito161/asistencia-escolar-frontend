@@ -15,6 +15,7 @@ import {
 import attendanceService
   from '@/services/attendanceService'
 import { useAuthStore } from '@/stores/auth'
+import SessionLogout from '@/components/SessionLogout.vue'
 
 import {
   useAttendanceStore,
@@ -36,11 +37,6 @@ const student =
     name:
       authStore.email || 'Estudiante',
 
-    grade:
-      'Perfil pendiente de API',
-
-    level:
-      '',
   })
 
 const attendance =
@@ -545,11 +541,10 @@ onBeforeUnmount(
         {{ attendanceStore.error }}
         <button type="button" @click="attendanceStore.loadHistory()">Reintentar</button>
       </p>
-      <p>Los indicadores se calculan sobre las asistencias registradas; no incluyen días sin registro.</p>
 
       <header class="topbar">
 
-        <div></div>
+        <SessionLogout />
 
         <div class="profile">
 
@@ -666,32 +661,6 @@ onBeforeUnmount(
           
 
           <div class="right-column">
-
-            <section class="grade-card">
-
-              <h3>
-                🎓 Mi grado y sección
-              </h3>
-
-              <div class="grade-box">
-
-                <div>
-                  <strong>
-                    {{ student.grade }}
-                  </strong>
-
-                  <span>
-                    {{ student.level }}
-                  </span>
-                </div>
-
-                <span class="books">
-                  📚
-                </span>
-
-              </div>
-
-            </section>
 
             <section class="summary-card">
 
