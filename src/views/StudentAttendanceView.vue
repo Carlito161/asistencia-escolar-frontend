@@ -11,6 +11,7 @@ import {
 
 import attendanceService
   from '@/services/attendanceService'
+import SessionLogout from '@/components/SessionLogout.vue'
 
 const router =
   useRouter()
@@ -322,6 +323,8 @@ onMounted(
         >
           ← Volver al inicio
         </button>
+
+        <SessionLogout />
 
       </header>
 
